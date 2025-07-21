@@ -1,3 +1,30 @@
+# How to Add a Local Folder to GitHub (Step-by-Step)
+
+1. Create a new repository on GitHub (e.g., JS30Days).
+2. Open your terminal and navigate to your local project folder.
+3. Initialize git (if not already done):
+   ```
+   git init
+   ```
+4. Add all files:
+   ```
+   git add .
+   ```
+5. Commit your changes:
+   ```
+   git commit -m "Initial commit"
+   ```
+6. Add your GitHub repo as the remote:
+   ```
+   git remote add origin https://github.com/C-Sunil-Kumar/JS30Days.git
+   ```
+7. Push your code to GitHub:
+   ```
+   git push -u origin master
+   ```
+
+---
+
 # Professional GitHub Workflow Cheatsheet
 
 ## 1. Clone Repository // to have in local repo
