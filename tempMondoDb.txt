@@ -1,0 +1,59 @@
+// mongo db notes
+
+show dbs - to show available data base
+
+use xxx - to create a new database
+   eg. use office, use shop etc..
+
+use office
+use employees - creates a temp(not actually created until data is inserted)employees collection in office db
+
+db.employees.insertOne({name:"sunil", job: software "engineer"}) - to insertOne data
+
+db.employees.insertMany([
+    {name:"sunil", job: software "engineer",skills:{java: 3 , js: 3}},
+    {name:"kart", job: software "engineer",skills:{java: 1, js: 2}},
+    {name:"jo", job: software "engineer",skills:{java: 2, js: 2}}
+])
+
+db.employees.findOne()-- to find one filtered data, will give 1st data of no fileter args passed
+
+db.employees.find({name:"jo"})-- give only the jo data
+
+db.employees.find()-- to find many data, will give all data if no fileter args passed limeted to 2datas
+
+db.employees.find().toArray()-- will give all datas (large amount of datas greater than 20)
+db.employees.find().forEach((data)=> print(data))--- better way to get all large data
+
+db.employees.find({skills.java})
+
+db.employees.find('skills.js':{$gt: 1})--- filters and gives greater than 1 $lt for lesser than
+
+db.employees.updateOne()- to update one data
+
+db.employees.updateOne({name:"kart"},{$set{"skill.js":"1year"}})---- {name:"kart"} this is the filter
+
+db.employees.updateMany({})-- to update many 
+
+db.employees.deleteOne({name:"kart"})-- to delete one
+
+db.employees.deleteMany({"skills.java":"1year"})
+
+db.createCollection -- to create a collection
+
+db.createCollection('user',{size:5824880}) -- to spectify size eg 5mb here
+
+db.createCollection('user',{max:50})--- to specify max documents can be stored in this eg 50 is given
+
+db.createCollection('user',{storageEngine: {wiredTiger:{}} })
+
+db.employees.find({},{name:1,_id:0})--- will give only the name'
+db.employees.find({},{name:1,_id:0, is_Working:"true"})--- will give only the name's and add is_working true for all 
+
+db.employees.find().limit(2)-- limits to first two data
+db.emoployees.find().skip(2)-- skips the first two data
+db.emoployees.find().sort({name:1})-- sorts acencding for decending use -1
+
+
+
+
